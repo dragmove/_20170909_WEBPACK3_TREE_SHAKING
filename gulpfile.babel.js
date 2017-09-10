@@ -1,4 +1,4 @@
-var pkg = require('./package.json'),
+const pkg = require('./package.json'),
   //extend = require('extend'),
   gulp = require('gulp'),
   webpack = require('webpack'),
