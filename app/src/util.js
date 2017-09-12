@@ -1,12 +1,7 @@
-function isDefined(obj) {
-  return (obj === null || typeof obj === 'undefined') ? false : true;
+export function square(x) {
+  return x * x;
 }
 
-function truthy(obj) {
-  return !!obj;
-}
-
-export {
-  isDefined,
-  truthy
+export function cube(x) {
+  return x * x * x;
 }

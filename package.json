@@ -1,17 +1,16 @@
 {
-  "name": "test",
+  "name": "webpack3-tree-shaking",
   "version": "0.0.1",
   "description": "",
-  "keywords": [],
-  "homepage": "",
+  "keywords": ["webpack", "tree shaking", "webpack-dev-server", "babel-loader", "babel-preset-env"],
+  "homepage": "https://github.com/dragmove/_20170909_WEBPACK3_TREE_SHAKING",
   "bugs": {
-    "url": "",
+    "url": "https://github.com/dragmove/_20170909_WEBPACK3_TREE_SHAKING/issues",
     "email": "dragmove@gmail.com"
   },
   "main": "",
   "scripts": {
-    "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack --config webpack.config.js"
   },
   "author": "Hyun-Seok.Kim",
   "license": {
@@ -21,13 +20,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-es2017": "^6.24.1",
     "gulp": "^3.9.1",
-    "gulp-eslint": "^4.0.0",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"
   }

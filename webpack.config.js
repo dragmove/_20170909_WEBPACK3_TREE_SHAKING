@@ -3,8 +3,7 @@ var webpack = require('webpack'),
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './app/src/main.js'],
-    sub: ['./app/src/sub.js']
+    main: ['./app/src/main.js']
   },
 
   output: {
@@ -20,43 +19,55 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: [
+              ["env"/*, {
+                "modules": false // if you use tree shaking, remove comments. this is core of tree shaking in webpack-dev-server environment. 'ㅅ')!
+              }*/]
+            ]
           }
         }
       }
     ]
   },
 
-  // https://webpack.js.org/configuration/devtool/
-  devtool: 'eval-source-map',
-
-  devServer: {
-    contentBase: './app',
-    noInfo: true, //  --no-info option
-    // host: '',
-    port: 9000,
-    hot: true,
-    inline: true
-  },
+  devtool: 'source-map', // https://webpack.js.org/configuration/devtool/
 
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
+      // develop build setting
+      sourceMap: true,
+      mangle: false,
+      output: {
+        beautify: true,
+        comments: true
+      },
       compress: {
         unused: true,
-        drop_console: false,
-        warnings: false
-      },
-      sourceMap: true,
+        drop_console: false
+      }
 
-      mangle: true,
-      beautify: false
+      /*
+      // production build setting
+       sourceMap: false, // production build setting does not include main.map.js file.
+       mangle: true,
+       output: {
+       beautify: false,
+       comments: false
+       },
+       compress: {
+       unused: true,
+       drop_console: true
+       }
+       */
     })
+  ],
 
-    /*
-    new webpack.BannerPlugin({
-      banner: '',
-      raw: true
-    })
-    */
-  ]
+  devServer: {
+    contentBase: './app',
+    noInfo: true,
+    host: '',
+    port: 9000,
+    hot: true,
+    inline: true
+  }
 };
